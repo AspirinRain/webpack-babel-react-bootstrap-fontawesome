@@ -1,5 +1,6 @@
 # webpack2-babel-jquery-react-bootstrap-fontawesome
 
+[![Build Status](https://travis-ci.org/AspirinRain/webpack2-babel-jquery-react-bootstrap-fontawesome.svg?branch=master)](https://travis-ci.org/AspirinRain/webpack2-babel-jquery-react-bootstrap-fontawesome)
 
 An example of webpack 2.
 
