@@ -8,3 +8,10 @@ node_js:
 script:
   - npm run eslint
   - npm run test-cov
+
+notifications:
+  email:
+    recipients:
+      - chenshuai92@hotmail.com 
+    on_success: change
+    on_failure: always
