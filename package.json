@@ -1,7 +1,7 @@
 {
   "name": "react_webpack_webstorm",
   "version": "0.1.0",
-  "description": "My First webpack2+babel+jquery+react+bootstrap+fontawesome",
+  "description": "Artgrammer",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/webpack -d --progress --colors --watch",
@@ -14,7 +14,7 @@
   "license": "BSD-2-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AspirinRain/webpack2-babel-jquery-react-bootstrap-fontawesome.git"
+    "url": "https://github.com/ofloxacin/Artgrammer.git"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
