@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack -d --progress --colors --watch",
     "build": "webpack",
-    "test": "mocha test/test.js",
+    "test": "mocha",
     "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "eslint": "eslint src"
   },
