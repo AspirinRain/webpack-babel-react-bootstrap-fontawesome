@@ -6,11 +6,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/js/bootstrap';
 import '../css/index.css';
-import '../img/banner.jpg'
+import 'favicon.ico';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CommentBox from './components/comment-box';
+import AppRouter from './app_router';
 
-$(document).ready(function () {
-    $('#content2').text('jquery loaded');
-});
+ReactDOM.render(<AppRouter />, document.getElementById('app'));

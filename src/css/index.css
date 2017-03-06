@@ -1,10 +1,4 @@
-.image-banner {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top:0;
-    left:0;
-    background: url(../img/banner.jpg) no-repeat top center;
-    -webkit-background-size: cover;
-    background-size: cover;
+body {
+    min-height: 2000px;
+    padding-top: 70px;
 }

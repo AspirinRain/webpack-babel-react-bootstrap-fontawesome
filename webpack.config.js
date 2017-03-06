@@ -3,18 +3,16 @@
  */
 const path = require('path');
 const webpack = require('webpack');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin=require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        'main': './src/js/index.js',
-        'comment-box' : './src/js/components/comment-box.js'
+        'index': './src/js/index.js'
     },
     output: {
-        filename: 'bundle.js',
-        path: 'dist/js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
     module:{
         rules: [
@@ -75,12 +73,17 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: 'file-loader?name=../fonts/[name].[ext]'
+                loader: 'file-loader?name=./fonts/[name].[ext]'
             },
             {
                 test: /\.(jpg|png)$/,
-                loader: 'file-loader?name=../img/[name].[ext]'
+                loader: 'file-loader?name=./img/[name].[ext]'
+            },
+            {
+                test: /\.ico$/,
+                loader: 'file-loader?name=./[name].[ext]'
             }
+
         ]
     },
     resolve: {
@@ -89,23 +92,16 @@ module.exports = {
     plugins: [
         //单独生成html文件
         new HtmlWebpackPlugin({
-            filename: '../index.html',//生成的html及存放路径，相对于path
+            filename: './index.html',//生成的html及存放路径，相对于path
             template: './src/index.html',//载入文件及路径
-            inject: 'head',
+            inject: 'body',
             chunks: true
         }),
-
-        // 使用browser-sync实时刷新页面
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: { baseDir: ['./dist/'] },
-        }),
-        new ExtractTextPlugin('../css/styles.css'),
+        new ExtractTextPlugin('./css/styles.css'),
 
         new webpack.optimize.CommonsChunkPlugin({
-            name:'comment-box',
-            filename: 'components/comment-box.js'
+            name:'divider',
+            filename: 'components/divider.js'
         })
     ],
 };
