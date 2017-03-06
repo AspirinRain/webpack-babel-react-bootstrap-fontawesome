@@ -8,9 +8,10 @@ const HtmlWebpackPlugin=require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: [
-        './src/js/index.js'
-    ],
+    entry: {
+        'main': './src/js/index.js',
+        'comment-box' : './src/js/components/comment-box.js'
+    },
     output: {
         filename: 'bundle.js',
         path: 'dist/js'
@@ -75,6 +76,10 @@ module.exports = {
             {
                 test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'file-loader?name=../fonts/[name].[ext]'
+            },
+            {
+                test: /\.(jpg|png)$/,
+                loader: 'file-loader?name=../img/[name].[ext]'
             }
         ]
     },
@@ -86,15 +91,21 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: '../index.html',//生成的html及存放路径，相对于path
             template: './src/index.html',//载入文件及路径
-            publicPath: 'js/',//这是build文件下html文件引用js文件的路径
-            chunks: ['index'],//需要引入的chunk，不配置就会引入所有页面的资源
+            inject: 'head',
+            chunks: true
         }),
+
         // 使用browser-sync实时刷新页面
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
-            server: { baseDir: ['./dist/'] }//会默认访问./build/index.html
+            server: { baseDir: ['./dist/'] },
         }),
-        new ExtractTextPlugin('../css/styles.css')
+        new ExtractTextPlugin('../css/styles.css'),
+
+        new webpack.optimize.CommonsChunkPlugin({
+            name:'comment-box',
+            filename: 'components/comment-box.js'
+        })
     ],
 };
