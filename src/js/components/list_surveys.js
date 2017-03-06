@@ -7,10 +7,8 @@ import React from 'react';
 class ListSurveys extends React.Component {
     render() {
         return (
-            <div className="container">
-                <div className="list-surveys">
-                    <h1>Active Surveys</h1>
-                </div>
+            <div className="list-surveys">
+                <h1>Active Surveys</h1>
             </div>
         );
     }

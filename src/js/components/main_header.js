@@ -12,7 +12,7 @@ class MainHeader extends React.Component {
             <nav className="navbar navbar-default navbar-fixed-top">
                 <div className="container">
                     <div className="navbar-header">
-                        <Link to="/list" className="navbar-brand">SurveyBuilder</Link>
+                        <Link to="/" className="navbar-brand">SurveyBuilder</Link>
                     </div>
                     <nav className="navbar-collapse collapse">
                         <MainNav />
