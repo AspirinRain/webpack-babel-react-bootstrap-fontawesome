@@ -63,8 +63,8 @@ const SurveyEditor = React.createClass({
 
                         <ReactCSSTransitionGroup
                             transitionName="question"
-                            transitionEnterTimeout={100}
-                            transitionLeaveTimeout={100}>
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={500}>
                             {questions}
                         </ReactCSSTransitionGroup>
 

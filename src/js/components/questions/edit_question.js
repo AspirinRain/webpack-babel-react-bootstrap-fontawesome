@@ -28,6 +28,7 @@ const EditQuestion = React.createClass({
                             <span className='glyphicon glyphicon-remove' />
                         </a>
                     </div>
+                    <div>{this.props.children}</div>
                 </div>
             </div>
         );
@@ -39,7 +40,6 @@ const EditQuestion = React.createClass({
 
     handleRemove: function () {
         if (confirm('Are you sure you want to delete this ' + this.getTypeLabel())) {
-            console.log(this.props.key);
             this.props.onRemove(this.props.key);
         }
     }
