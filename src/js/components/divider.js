@@ -7,7 +7,7 @@ import React from 'react';
 class Divider extends React.Component {
     render() {
         return (
-            <div className="divider">
+            <div className="divider clearfix">
                 <h2>{this.props.children}</h2>
                 <hr />
             </div>
