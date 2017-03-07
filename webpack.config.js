@@ -97,7 +97,7 @@ module.exports = {
             inject: 'body',
             chunks: true
         }),
-        new ExtractTextPlugin('./css/styles.css'),
+        new ExtractTextPlugin('./styles.css'),
 
         new webpack.optimize.CommonsChunkPlugin({
             name:'divider',
