@@ -9,13 +9,17 @@ import DraggableQuestions from './draggable_questions';
 import SurveyForm from './survey_form';
 
 import EditYesNoQuestion from './questions/edit_yes_no_question';
+import EditMultipleChoiceQuestion from './questions/edit_multiple_choice_question';
+import EditEssayQuestion from './questions/edit_essay_question';
 
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import update from 'react/lib/update';
 
 
 const SUPPORTED_QUESTIONS = {
-    yes_no: EditYesNoQuestion
+    yes_no: EditYesNoQuestion,
+    multiple_choice: EditMultipleChoiceQuestion,
+    essay: EditEssayQuestion
 };
 
 const SurveyEditor = React.createClass({
@@ -33,7 +37,6 @@ const SurveyEditor = React.createClass({
 
             return React.createElement(SUPPORTED_QUESTIONS[q.type], {
                 key: i,
-                key2: i,
                 onChange: this.handleQuestionChange,
                 onRemove: this.handleQuestionRemove,
                 question: q
