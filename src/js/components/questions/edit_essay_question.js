@@ -8,7 +8,7 @@ import EditQuestion from './edit_question';
 
 const EditEssayQuestion = React.createClass({
     propTypes: {
-       key2: React.PropTypes.number.isRequired,
+       _key: React.PropTypes.number.isRequired,
        onChange: React.PropTypes.func.isRequired,
        onRemove: React.PropTypes.func.isRequired,
        question: React.PropTypes.object.isRequired
@@ -27,11 +27,11 @@ const EditEssayQuestion = React.createClass({
 
     handleChange: function (ev) {
         let question = merge(this.props.question, {description: ev.target.value});
-        this.props.onChange(question);
+        this.props.onChange(this.props._key, question);
     },
 
     handleRemove: function () {
-        this.props.onRemove(this.props.key2);
+        this.props.onRemove(this.props._key);
     }
 });
 

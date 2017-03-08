@@ -9,7 +9,7 @@ import EditQuestion from './edit_question';
 const EditMultipleChoiceQuestion = React.createClass({
 
     propTypes: {
-        key: React.PropTypes.number.isRequired,
+        _key: React.PropTypes.number.isRequired,
         onChange: React.PropTypes.func.isRequired,
         onRemove: React.PropTypes.func.isRequired,
         question: React.PropTypes.object.isRequired
@@ -23,8 +23,8 @@ const EditMultipleChoiceQuestion = React.createClass({
         options = options.map(function (option, i) {
             return (
                 <li key={i} className="option">
-                    <input type="text" className="small" value={option} />
-                    <a className="remove-option">
+                    <input type="text" className="small" value={option} onChange={this.handleOptionChange.bind(this, i)} />
+                    <a className="remove-option" onClick={this.handleOptionRemove.bind(this, i)}>
                         <span className='glyphicon glyphicon-remove'/>
                     </a>
                 </li>
@@ -40,7 +40,7 @@ const EditMultipleChoiceQuestion = React.createClass({
                 <ul className='options list-unstyled'>
                     {options}
                     <li className='add-option'>
-                        <a>
+                        <a onClick={this.handleOptionAdd}>
                             <span className='glyphicon glyphicon-plus'/>
                             Add option
                         </a>
@@ -51,13 +51,32 @@ const EditMultipleChoiceQuestion = React.createClass({
     },
 
     handleDescriptionChange: function (ev) {
-        var question = merge(this.props.question, { description: ev.target.value });
-        this.props.onChange(this.props.key, question);
+        let question = merge(this.props.question, { description: ev.target.value });
+        this.props.onChange(this.props._key, question);
+    },
+
+    handleOptionAdd: function () {
+        let question = this.props.question;
+        let options = question.options || [];
+        question.options = options.concat('');
+        this.props.onChange(this.props._key, question);
+    },
+
+    handleOptionChange: function (key, ev) {
+        let question = this.props.question;
+        question.options[key] = ev.target.value;
+        this.props.onChange(this.props._key, question);
+    },
+
+    handleOptionRemove: function (key) {
+        let question = this.props.question;
+        question.options.splice(key, 1);
+        this.props.onChange(this.props._key, question);
     },
 
     handleRemove: function () {
-        this.props.onRemove(this.props.key);
-    }
+        this.props.onRemove(this.props._key);
+    },
 });
 
 export default EditMultipleChoiceQuestion;

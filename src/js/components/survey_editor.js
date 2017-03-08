@@ -37,6 +37,7 @@ const SurveyEditor = React.createClass({
 
             return React.createElement(SUPPORTED_QUESTIONS[q.type], {
                 key: i,
+                _key: i,
                 onChange: this.handleQuestionChange,
                 onRemove: this.handleQuestionRemove,
                 question: q
