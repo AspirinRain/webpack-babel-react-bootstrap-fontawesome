@@ -10,7 +10,7 @@ class MainNav extends React.Component {
         return (
             <ul className="nav navbar-nav">
                 <li><Link to='/list'>All Surveys</Link></li>
-                <li><Link to="/add">Add Surveys</Link></li>
+                <li><Link to="/add_survey">Add Surveys</Link></li>
             </ul>
         );
     }

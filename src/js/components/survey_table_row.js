@@ -37,7 +37,7 @@ const SurveyTableRow = React.createClass({
         return (
             <tr>
                 <td>
-                    <Link to='take' data-surveyId={survey.id} className='title'>
+                    <Link to={'/surveys/' + survey.id} className='title'>
                         {survey.title}
                     </Link>
                 </td>
@@ -48,7 +48,7 @@ const SurveyTableRow = React.createClass({
                     <SparkLine points={survey.activity}/>
                 </td>
                 <td>
-                    <Link to="edit" data-surveyId={survey.id} className="btn btn-link btn-editSurvey edit">
+                    <Link to={'/surveys/' + survey.id + '/edit'}  className="btn btn-link btn-editSurvey edit">
                         <i className="glyphicon glyphicon-pencil" />
                     </Link>
                 </td>
