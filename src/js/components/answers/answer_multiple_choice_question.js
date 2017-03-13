@@ -22,6 +22,7 @@ const AnswerMultipleChoiceQuestion = React.createClass({
 
     handleChanged: function (value) {
         this.setState({value: value});
+        this.props.onCompleted(value);
     },
 
     renderChoices: function () {
@@ -33,7 +34,7 @@ const AnswerMultipleChoiceQuestion = React.createClass({
                 label: choice,
                 value: choice,
                 checked: this.state.value === choice,
-                onChange: this.handleChanged
+                onChanged: this.handleChanged
             });
         }.bind(this));
     },

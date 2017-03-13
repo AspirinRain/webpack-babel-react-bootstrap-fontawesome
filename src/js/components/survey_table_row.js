@@ -48,7 +48,7 @@ const SurveyTableRow = React.createClass({
                     <SparkLine points={survey.activity}/>
                 </td>
                 <td>
-                    <Link to={'/surveys/' + survey.id + '/edit'}  className="btn btn-link btn-editSurvey edit">
+                    <Link to={'/surveys/' + survey.id + '/edit'} className="btn btn-link btn-editSurvey edit">
                         <i className="glyphicon glyphicon-pencil" />
                     </Link>
                 </td>

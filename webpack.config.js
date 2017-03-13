@@ -99,9 +99,9 @@ module.exports = {
         }),
         new ExtractTextPlugin('./styles.css'),
 
-        new webpack.optimize.CommonsChunkPlugin({
-            name:'divider',
-            filename: 'components/divider.js'
-        })
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name:'divider',
+        //     filename: 'components/divider.js'
+        // })
     ],
 };
